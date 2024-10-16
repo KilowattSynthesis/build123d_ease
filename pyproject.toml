@@ -1,5 +1,5 @@
 [project]
-name = "build123d_ease"
+name = "build123d-ease"
 version = "0.1.0"
 description = "Extensions, tools, and shortcuts to make modelling with Build123d easier"
 readme = "README.md"
