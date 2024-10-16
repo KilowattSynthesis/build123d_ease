@@ -3,15 +3,18 @@ name: Run Unit Tests
 
 on: [push]
 
-strategy:
-  matrix:
-    python-version:
-      - "3.10"
-      - "3.11"
-      - "3.12"
 
 jobs:
   run-unit-tests:
+
+  strategy:
+    matrix:
+      python-version:
+        - "3.10"
+        - "3.11"
+        - "3.12"
+        - "3.13"
+
     name: python
     runs-on: ubuntu-latest
 
