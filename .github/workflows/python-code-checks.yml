@@ -21,12 +21,12 @@ jobs:
 
     - name: Ruff format check
       run: |
-        ruff format --check .
+        uv run ruff format --check .
 
     - name: Ruff linting check
       run: |
-        ruff check .
+        uv run ruff check .
 
     - name: Pyright type checking
       run: |
-        pyright .
+        uv run pyright .
