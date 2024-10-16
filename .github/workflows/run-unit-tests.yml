@@ -6,18 +6,16 @@ on: [push]
 
 jobs:
   run-unit-tests:
-
-  strategy:
-    matrix:
-      python-version:
-        - "3.10"
-        - "3.11"
-        - "3.12"
-        - "3.13"
-
-    name: python
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        python-version:
+          - "3.10"
+          - "3.11"
+          - "3.12"
+          - "3.13"
+          
     steps:
       - uses: actions/checkout@v4
 
