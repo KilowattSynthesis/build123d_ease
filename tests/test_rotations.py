@@ -1,5 +1,7 @@
 """Tests for the `rotation` module."""
 
+# pyright: reportCallIssue=information
+
 import build123d as bd
 
 import build123d_ease as bde
