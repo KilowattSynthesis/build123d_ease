@@ -24,7 +24,8 @@
         "**/.pytest_cache": true,
         "**/__pycache__": true,
         "**/*.pyc": true,
-        "**/*.egg-info": true
+        "**/*.egg-info": true,
+        "**/.ruff_cache": true
     },
     "cSpell.customDictionaries": {
         "custom-dictionary-workspace": {
