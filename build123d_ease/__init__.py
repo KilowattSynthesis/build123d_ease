@@ -11,7 +11,7 @@ from .fetch_faces import (
     top_face_of,
 )
 
-__VERSION__ = "0.1.2"
+__VERSION__ = "0.1.2.1"
 
 __all__ = [
     "align",
