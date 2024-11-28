@@ -17,6 +17,7 @@ T = TypeVar(
     bd.Edge,
     bd.Vertex,
     bd.Wire,
+    bd.Solid,
 )
 
 
