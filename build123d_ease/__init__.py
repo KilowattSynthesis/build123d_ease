@@ -12,18 +12,18 @@ from .fetch_faces import (
 )
 from .math import evenly_space_with_center
 
-__VERSION__ = "0.1.2.2"
+__VERSION__ = "0.2.0.0"
 
 __all__ = [
     "align",
-    "rotation",
-    "show",
-    "fetch_faces",
-    "top_face_of",
+    "back_face_of",
     "bottom_face_of",
+    "evenly_space_with_center",
+    "fetch_faces",
+    "front_face_of",
     "left_face_of",
     "right_face_of",
-    "front_face_of",
-    "back_face_of",
-    "evenly_space_with_center",
+    "rotation",
+    "show",
+    "top_face_of",
 ]

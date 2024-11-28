@@ -1,6 +1,6 @@
 [project]
 name = "build123d-ease"
-version = "0.1.2.2"
+version = "0.2.0.0"
 description = "Extensions, tools, and shortcuts to make modelling with Build123d easier"
 readme = "README.md"
 requires-python = ">=3.10"
