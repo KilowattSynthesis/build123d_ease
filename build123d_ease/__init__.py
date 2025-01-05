@@ -2,9 +2,11 @@
 
 from . import align, fetch_faces, rotation
 from .ci_show import show
+from .fetch_axes import axis_from_cylindric_faces
 from .fetch_faces import (
     back_face_of,
     bottom_face_of,
+    cylindric_faces,
     front_face_of,
     left_face_of,
     right_face_of,
@@ -26,4 +28,6 @@ __all__ = [
     "rotation",
     "show",
     "top_face_of",
+    "cylindric_faces",
+    "axis_from_cylindric_faces",
 ]
