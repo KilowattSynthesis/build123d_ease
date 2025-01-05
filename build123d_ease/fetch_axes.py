@@ -4,7 +4,7 @@ import build123d as bd
 
 
 def axis_from_cylindric_faces(face: bd.Face) -> bd.Axis:
-    """Return a the central axis for a cylindrical face.
+    """Return the central axis for a cylindrical face.
 
     Returns:
         bd.Axis: The central axis through the cyindrical face.
