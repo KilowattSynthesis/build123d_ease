@@ -35,10 +35,15 @@ def back_face_of(part: bd.Part) -> bd.Face:
     return part.faces().sort_by(bd.Axis.Y)[-1]
 
 
-def cylindric_faces(
+def cylindrical_faces_of(
     part: bd.Part, cylinder_type: Literal["hole", "pin"] | None = None
 ) -> list[bd.Face]:
-    """Return a list of cylindric faces of the given Part object.
+    """Return a list of cylindrical faces of the given Part object.
+
+    Args:
+        part (bd.Part): The Part object to search for cylindrical faces.
+        cylinder_type (Literal["hole", "pin"], optional): The type of cylinder to fetch.
+            If None, all cylindrical faces are returned. Defaults to None.
 
     Returns:
         list[bd.Face]: a list of requested face.

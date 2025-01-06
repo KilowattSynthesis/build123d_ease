@@ -7,8 +7,8 @@ import build123d as bd
 import build123d_ease as bde
 
 
-def test_cylindric_faces_find_hole() -> None:
-    """Validate finding a cylindric face for a hole."""
+def test_cylindrical_faces_of_find_hole() -> None:
+    """Validate finding a cylindrical face for a hole."""
     r = 10
     h = 10
     p = (
@@ -20,13 +20,13 @@ def test_cylindric_faces_find_hole() -> None:
             align=bde.align.ANCHOR_TOP,
         )
     )
-    cylindric_face: bd.Face = bde.cylindric_faces(p, cylinder_type="hole")[0]
+    cylindrical_face: bd.Face = bde.cylindrical_faces_of(p, cylinder_type="hole")[0]
     expected_face_area = 2 * pi * r * h
-    assert isclose(cylindric_face.area, expected_face_area, rel_tol=1e-6)
+    assert isclose(cylindrical_face.area, expected_face_area, rel_tol=1e-6)
 
 
-def test_cylindric_faces_find_pin() -> None:
-    """Validate finding a cylindric face for a pin."""
+def test_cylindrical_faces_of_find_pin() -> None:
+    """Validate finding a cylindrical face for a pin."""
     r = 10
     h = 10
     p = (
@@ -38,13 +38,13 @@ def test_cylindric_faces_find_pin() -> None:
             align=bde.align.ANCHOR_TOP,
         )
     )
-    cylindric_face = bde.cylindric_faces(p, cylinder_type="pin")[0]
+    cylindrical_face = bde.cylindrical_faces_of(p, cylinder_type="pin")[0]
     expected_face_area = 2 * pi * r * h
-    assert isclose(cylindric_face.area, expected_face_area, rel_tol=1e-6)
+    assert isclose(cylindrical_face.area, expected_face_area, rel_tol=1e-6)
 
 
-def test_cylindric_faces_find_all() -> None:
-    """Validate finding cylindric faces, one hole and one pin."""
+def test_cylindrical_faces_of_find_all() -> None:
+    """Validate finding cylindrical faces, one hole and one pin."""
     r = 10
     h = 10
     p = (
@@ -57,9 +57,9 @@ def test_cylindric_faces_find_all() -> None:
         )
         - bd.Cylinder(radius=0.5 * r, height=h, align=bde.align.ANCHOR_TOP)
     )
-    cylindric_faces = bde.cylindric_faces(p)
+    cylindrical_faces_of = bde.cylindrical_faces_of(p)
     expected_face_area_pin = 2 * pi * r * h
     expected_face_area_hole = 2 * pi * 0.5 * r * h
 
-    assert isclose(cylindric_faces[0].area, expected_face_area_pin, rel_tol=1e-6)
-    assert isclose(cylindric_faces[1].area, expected_face_area_hole, rel_tol=1e-6)
+    assert isclose(cylindrical_faces_of[0].area, expected_face_area_pin, rel_tol=1e-6)
+    assert isclose(cylindrical_faces_of[1].area, expected_face_area_hole, rel_tol=1e-6)
