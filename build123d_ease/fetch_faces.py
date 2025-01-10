@@ -35,6 +35,42 @@ def back_face_of(part: bd.Part) -> bd.Face:
     return part.faces().sort_by(bd.Axis.Y)[-1]
 
 
+def cylindrical_faces_of(
+    part: bd.Part, cylinder_type: Literal["hole", "pin"] | None = None
+) -> bd.ShapeList[bd.Face]:
+    """Return a list of cylindrical faces of the given Part object.
+
+    Args:
+        part (bd.Part): The Part object to search for cylindrical faces.
+        cylinder_type (Literal["hole", "pin"], optional): The type of cylinder to fetch.
+            If None, all cylindrical faces are returned. Defaults to None.
+
+    Returns:
+        list[bd.Face]: a list of requested face.
+
+    """
+
+    def is_valid_candidate(face: bd.Face) -> bool:
+        center_position = 0.5 * (face.position_at(0, 0.5) + face.position_at(0.5, 0.5))
+        is_inside = part.is_inside(center_position)
+
+        if cylinder_type == "hole":
+            return not is_inside
+        if cylinder_type == "pin":
+            return is_inside
+        return True
+
+    faces = part.faces().filter_by(bd.GeomType.CYLINDER)
+    valid_faces = (
+        face
+        for face in faces
+        if any(edge.is_closed for edge in face.edges())  # Only full cylinders.
+    )
+
+    filtered_faces = filter(is_valid_candidate, valid_faces)
+    return bd.ShapeList(filtered_faces)
+
+
 def get_face_by_name(
     part: bd.Part,
     face_name: Literal["top", "bottom", "left", "right", "front", "back"],
