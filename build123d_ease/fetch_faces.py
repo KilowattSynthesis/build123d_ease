@@ -37,7 +37,7 @@ def back_face_of(part: bd.Part) -> bd.Face:
 
 def cylindrical_faces_of(
     part: bd.Part, cylinder_type: Literal["hole", "pin"] | None = None
-) -> list[bd.Face]:
+) -> bd.ShapeList[bd.Face]:
     """Return a list of cylindrical faces of the given Part object.
 
     Args:
@@ -68,8 +68,7 @@ def cylindrical_faces_of(
     )
 
     filtered_faces = filter(is_valid_candidate, valid_faces)
-
-    return list(filtered_faces)
+    return bd.ShapeList(filtered_faces)
 
 
 def get_face_by_name(
