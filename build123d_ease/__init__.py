@@ -10,7 +10,7 @@ from .fetch_faces import (
     right_face_of,
     top_face_of,
 )
-from .math import evenly_space_with_center
+from .geom_math import evenly_space_with_center
 
 __VERSION__ = "0.2.0.0"
 
