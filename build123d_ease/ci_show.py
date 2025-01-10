@@ -1,7 +1,5 @@
 """Create a version of the `show()` function which runs silently in a CI environment."""
 
-# pyright: reportMissingTypeStubs=information, reportUnknownMemberType=information, reportRedeclaration=information
-
 import os
 from typing import TypeVar
 
@@ -29,7 +27,7 @@ def _can_be_shown(obj: object) -> bool:
 
 if os.getenv("CI"):
 
-    def show(cad_obj: T, *args: object) -> T:
+    def show(cad_obj: T, *args: object) -> T:  # type: ignore reportUnknownMemberType
         """Do nothing (dummy function) to skip showing the CAD model in CI."""
         if not _can_be_shown(cad_obj):
             msg = "The first argument must be a Part object."
@@ -42,7 +40,7 @@ if os.getenv("CI"):
 
         return cad_obj
 else:
-    import ocp_vscode
+    import ocp_vscode  # type: ignore reportMissingTypeStubs
 
     def show(cad_obj: T, *args: object) -> T:
         """Show the CAD model in the CAD viewer."""
@@ -50,5 +48,5 @@ else:
             msg = "The first argument must be a Part object."
             raise TypeError(msg)
 
-        ocp_vscode.show(cad_obj, *args)
+        ocp_vscode.show(cad_obj, *args)  # type: ignore reportUnknownMemberType
         return cad_obj
