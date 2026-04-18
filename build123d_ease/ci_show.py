@@ -1,7 +1,7 @@
 """Create a version of the `show()` function which runs silently in a CI environment."""
 
 import os
-from typing import TypeVar
+from typing import Any, TypeVar
 
 import build123d as bd
 
@@ -16,11 +16,11 @@ T = TypeVar(
     bd.Vertex,
     bd.Wire,
     bd.Solid,
-    bd.Shape,
+    "bd.Shape[Any]",  # pyright: ignore[reportPrivateImportUsage]
 )
 
 
-def _can_be_shown(obj: object) -> bool:
+def _can_be_shown(obj: Any) -> bool:  # noqa: ANN401
     """Return True if the object is show-able in the CAD viewer."""
     return isinstance(obj, T.__constraints__)
 
