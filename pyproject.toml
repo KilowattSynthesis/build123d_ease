@@ -1,9 +1,9 @@
 [project]
 name = "build123d-ease"
-version = "0.2.0.0"
+version = "0.2.1"
 description = "Extensions, tools, and shortcuts to make modelling with Build123d easier"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "build123d",
     "ocp_vscode",
@@ -19,6 +19,9 @@ dev = [
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.pyright]
+typeCheckingMode = "strict"
 
 [tool.ruff]
 line-length = 88
