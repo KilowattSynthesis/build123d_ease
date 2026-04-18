@@ -78,7 +78,7 @@ dependencies = [
     { name = "ocp-vscode" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "pyright" },
     { name = "pytest" },
@@ -89,11 +89,14 @@ dev = [
 requires-dist = [
     { name = "build123d" },
     { name = "ocp-vscode" },
-    { name = "pyright", marker = "extra == 'dev'" },
-    { name = "pytest", marker = "extra == 'dev'" },
-    { name = "ruff", marker = "extra == 'dev'" },
 ]
-provides-extras = ["dev"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pyright" },
+    { name = "pytest", specifier = ">=9.0.3" },
+    { name = "ruff" },
+]
 
 [[package]]
 name = "cachetools"

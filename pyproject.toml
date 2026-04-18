@@ -9,9 +9,9 @@ dependencies = [
     "ocp_vscode",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    "pytest",
+    "pytest>=9.0.3",
     "ruff",
     "pyright",
 ]
