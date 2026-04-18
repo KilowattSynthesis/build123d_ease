@@ -36,7 +36,7 @@ def back_face_of(part: bd.Part) -> bd.Face:
 
 
 def cylindrical_faces_of(
-    part: bd.Part, cylinder_type: Literal["hole", "pin"] | None = None
+    part: bd.Part | bd.Compound, cylinder_type: Literal["hole", "pin"] | None = None
 ) -> bd.ShapeList[bd.Face]:
     """Return a list of cylindrical faces of the given Part object.
 
