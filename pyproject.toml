@@ -23,6 +23,13 @@ build-backend = "hatchling.build"
 [tool.pyright]
 typeCheckingMode = "strict"
 
+
+[tool.uv]
+required-environments = [
+    "sys_platform == 'linux' and platform_machine == 'x86_64'"
+]
+
+
 [tool.ruff]
 line-length = 88
 
