@@ -1,6 +1,10 @@
 name: Run Unit Tests
 
-on: [push]
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
 
 jobs:
   run-unit-tests:
