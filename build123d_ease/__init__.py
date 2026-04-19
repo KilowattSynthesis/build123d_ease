@@ -1,6 +1,7 @@
 """Extensions, tools, and shortcuts to make modelling with Build123d easier."""
 
 from . import align, fetch_faces, rotation
+from ._rounded_box import RoundedBox
 from .ci_show import show
 from .fetch_axes import axis_from_cylindrical_face
 from .fetch_faces import (
@@ -14,9 +15,10 @@ from .fetch_faces import (
 )
 from .geom_math import evenly_space_with_center
 
-__VERSION__ = "0.2.0.0"
+__VERSION__ = "0.2.1"
 
 __all__ = [
+    "RoundedBox",
     "align",
     "axis_from_cylindrical_face",
     "back_face_of",
