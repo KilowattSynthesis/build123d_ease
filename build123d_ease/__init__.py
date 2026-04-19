@@ -15,7 +15,7 @@ from .fetch_faces import (
 )
 from .geom_math import evenly_space_with_center
 
-__VERSION__ = "0.2.1"
+__VERSION__ = "0.2.2"
 
 __all__ = [
     "RoundedBox",
